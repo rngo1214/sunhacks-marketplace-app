@@ -2,13 +2,25 @@
   "name": "sunhacks-marketplace-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "node_modules/expo/AppEntry.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "eject": "expo eject"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rngo1214/sunhacks-marketplace-app.git"
+  },
+  "dependencies": {
+    "expo": "^31.0.2",
+    "react": "16.5.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz"
+  },
+  "devDependencies": {
+    "babel-preset-expo": "^5.0.0"
   },
   "author": "Randy Ngo, Dhruv Parikh, Atul Merchia",
   "license": "ISC",
