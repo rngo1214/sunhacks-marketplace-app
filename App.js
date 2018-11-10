@@ -1,10 +1,32 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Dimensions } from 'react-native';
+import { createStackNavigator } from 'react-navigation';
 
 //Dimensions component gets the screen dimensions of the current device
 //Declared width and height variables to work with
 var width = Dimensions.get('window').width;
 var height = Dimensions.get('window').height;
+
+class LoginScreen extends React.Component {
+  render() {
+    <View style={styles.loginPage}>
+      <Text style={styles.title}>Temporary App Name</Text>
+      <Text style={styles.whiteText}>Username</Text>
+      <TextInput style={styles.textField} onChangeText={(text1) => this.setState({text1})} placeholder={this.state.field1}></TextInput>
+      <Text style={styles.whiteText}>Password</Text>
+      <TextInput style={styles.textField} onChangeText={(text2) => this.setState({text2})} placeholder={this.state.field2}></TextInput>
+      <View style={{flex: 10}}></View>
+      <Button title="Login" onPress={() => this.props.navigation.navigate('Main')} />
+    </View>
+  }
+}
+
+const RootStack = createStackNavigator(
+  {
+    Login: LoginScreen,
+    Main: Main
+  }
+)
 
 export default class App extends React.Component {
   constructor(props) {
@@ -18,14 +40,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View style={styles.loginPage}>
-        <Text style={styles.title}>Temporary App Name</Text>
-        <Text style={styles.whiteText}>Username</Text>
-        <TextInput style={styles.textField} onChangeText={(text1) => this.setState({text1})} placeholder={this.state.field1}></TextInput>
-        <Text style={styles.whiteText}>Password</Text>
-        <TextInput style={styles.textField} onChangeText={(text2) => this.setState({text2})} placeholder={this.state.field2}></TextInput>
-        <View style={{flex: 10}}></View>
-      </View>
+      <RootStack />
     );
   }
 }
