@@ -1,0 +1,19 @@
+{
+  "name": "sunhacks-marketplace-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rngo1214/sunhacks-marketplace-app.git"
+  },
+  "author": "Randy Ngo, Dhruv Parikh, Atul Merchia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rngo1214/sunhacks-marketplace-app/issues"
+  },
+  "homepage": "https://github.com/rngo1214/sunhacks-marketplace-app#readme"
+}
