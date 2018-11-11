@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, FlatList } from 'react-native';
+import { Text, View, FlatList, TouchableHighlight } from 'react-native';
 import Styles from '../Styles'
 
 export default class RentFeed extends React.Component {
@@ -28,7 +28,6 @@ export default class RentFeed extends React.Component {
       this.setState({
         data: JSON.parse(response._bodyInit)
       })
-      console.log(this.state.data);
     })
     .catch(function(err) {})
   };
@@ -40,13 +39,15 @@ export default class RentFeed extends React.Component {
         data={this.state.data}
         renderItem={({item}) =>
           <View style={Styles.cardContainer}>
-            <View style={Styles.card}>
-            <Text style={Styles.cardTitle}>{item.title}</Text>
-            <Text style={Styles.cardAuthor}>{item.author}</Text>
-            <Text style={Styles.cardDescription}>{item.description}</Text>
-            <Text style={Styles.cardBudget}>Budget: {item.budget}</Text>
-            <Text style={Styles.cardDuration}>Duration: {item.useDuration}</Text>
-            </View>
+            {/* <TouchableHighlight underlayColor={'grey'}> */}
+              <View style={Styles.card}>
+                <Text style={Styles.cardTitle}>{item.title}</Text>
+                <Text style={Styles.cardAuthor}>{item.author}</Text>
+                <Text style={Styles.cardDescription}>{item.description}</Text>
+                <Text style={Styles.cardBudget}>Budget: {item.budget}</Text>
+                <Text style={Styles.cardDuration}>Duration: {item.useDuration}</Text>
+              </View>
+            {/* </TouchableHighlight> */}
           </View>
         }
         style={{

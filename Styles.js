@@ -129,4 +129,17 @@ export default StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
+    flexChat: {
+      flex: 3,
+      backgroundColor: '#fff',
+      width: width,
+    },
+    chatBox: {
+      flex: 1,
+      backgroundColor: 'maroon',
+      alignContent: 'center',
+      padding: 20,
+      borderRadius: 10,
+      margin: 15,
+    }
   });

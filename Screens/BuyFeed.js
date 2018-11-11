@@ -28,7 +28,6 @@ export default class BuyFeed extends React.Component {
       this.setState({
         data: JSON.parse(response._bodyInit)
       })
-      console.log(this.state.data);
     })
     .catch(function(err) {})
   };

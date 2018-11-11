@@ -41,12 +41,12 @@ class LoginScreen extends React.Component {
   render() {
     return (
       <View style={Styles.loginPage}>
-        <Text style={Styles.title}>BACs</Text>
+        <Text style={Styles.title}>BACS</Text>
         <Text style={Styles.whiteText}>Email</Text>
         <TextInput style={Styles.textField} placeholder={"Insert Email"} onChangeText={email => this.setState({email})}></TextInput>
         <Text style={Styles.whiteText}>Password</Text>
         <TextInput style={Styles.textField} placeholder={"Insert Password"} onChangeText={password => this.setState({password})}></TextInput>
-        <TouchableHighlight style={Styles.loginButton} onPress={this.handlePress} underlayColor={'grey'}>
+        <TouchableHighlight style={Styles.loginButton} onPress={this.handlePress} underlayColor={'#fff'}>
           <Text style={Styles.loginText}>Login</Text>
         </TouchableHighlight>
         <View style={{flex: 5}}></View>
@@ -59,7 +59,7 @@ class CreateScreen extends React.Component {
   render () {
     return (
       <View style={Styles.createPage}>
-        <Text style={Styles.title}>Temporary App Name</Text>
+        <Text style={Styles.title}>BACS</Text>
         <Text style={Styles.whiteText}>Name</Text>
         <TextInput style={Styles.textField} placeholder={"Insert Name"}></TextInput>
         <Text style={Styles.whiteText}>Email</Text>
