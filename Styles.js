@@ -12,8 +12,14 @@ var secondaryColor;
 export default StyleSheet.create({
     //Page styles
     loginPage: {
-      paddingTop: Expo.Constants.statusBarHeight,
       flex: 1,
+      paddingTop: Expo.Constants.statusBarHeight,
+      backgroundColor: 'grey',
+      alignItems: 'center'
+    },
+    createPage: {
+      flex: 1,
+      paddingTop: Expo.Constants.statusBarHeight,
       backgroundColor: 'grey',
       alignItems: 'center'
     },
@@ -60,6 +66,7 @@ export default StyleSheet.create({
         backgroundColor: 'grey',
         alignContent: 'center',
         justifyContent: 'center',
+        borderRadius: 10,
     },
     cardRow: {
       color: '#fff',

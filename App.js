@@ -55,9 +55,29 @@ class LoginScreen extends React.Component {
   }
 }
 
+class CreateScreen extends React.Component {
+  render () {
+    return (
+      <View style={Styles.createPage}>
+        <Text style={Styles.title}>Temporary App Name</Text>
+        <Text style={Styles.whiteText}>Name</Text>
+        <TextInput style={Styles.textField} placeholder={"Insert Name"}></TextInput>
+        <Text style={Styles.whiteText}>Email</Text>
+        <TextInput style={Styles.textField} placeholder={"Insert Email"}></TextInput>
+        <Text style={Styles.whiteText}>Password</Text>
+        <TextInput style={Styles.textField} placeholder={"Insert Password"}></TextInput>
+        <TouchableHighlight style={Styles.createButton} onPress={() => this.props.navigation.navigate('Main')} underlayColor={'grey'}>
+          <Text>Login</Text>
+        </TouchableHighlight>
+        <View style={{flex: 5}}></View>
+      </View>
+    )
+  }
+}
+
 const RootStack = createStackNavigator({
-    Login: LoginScreen,
-    Main: Main
+  Login: LoginScreen,
+  Main: Main
 },
 {
   initialRouteName: 'Login',
