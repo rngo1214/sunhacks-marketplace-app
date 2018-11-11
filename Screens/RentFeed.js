@@ -6,26 +6,26 @@ export default class RentFeed extends React.Component {
   render() {
     return (
       <FlatList
-        keyExtractor={(item) => JSON.stringify(item._id)}
+        keyExtractor={(item, index) => JSON.stringify(item._id)}
         data={[
           {
-            author: "Jimmy John",
-            title: "Cutting board and knives",
-            description: "I wanna make some sandwiches but I don't have any way to slice the veggies",
-            budget: "$2",
-            useDuration: "< 1 hr",
-            _id: {
-              Sold: "fjaklfdksaf"
+            "author": "Jimmy John",
+            "title": "Cutting board and knives",
+            "description": "I wanna make some sandwiches but I don't have any way to slice the veggies",
+            "budget": "$2",
+            "useDuration": "< 1 hr",
+            "_id": {
+              "Sold": "fjaklfdksaf"
             }
           },
           {
-            author: "Randy Ngo",
-            title: "Big bowl for cooking",
-            description: "I wanna make brownies but my bowl isn't big enough",
-            budget: "$5",
-            useDuration: "2 hr",
-            _id: {
-              Sold: "fjdklasfjkdh"
+            "author": "Randy Ngo",
+            "title": "Big bowl for cooking",
+            "description": "I wanna make brownies but my bowl isn't big enough",
+            "budget": "$5",
+            "useDuration": "2 hr",
+            "_id": {
+              "Sold": "fjdklasfjkdh"
             }
           }
         ]}
