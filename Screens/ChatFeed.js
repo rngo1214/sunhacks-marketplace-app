@@ -5,7 +5,7 @@ export default class ChatFeed extends React.Component {
     render() {
         return (
             <View>
-                <Text>hi</Text>
+                <Text>Chat</Text>
             </View>
         )  
     }

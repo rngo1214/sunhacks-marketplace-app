@@ -5,7 +5,7 @@ export default class BuyFeed extends React.Component {
     render() {
         return (
             <View>
-                <Text>hi</Text>
+                <Text>Buy</Text>
             </View>
         )  
     }

@@ -5,7 +5,7 @@ export default class SettingsFeed extends React.Component {
     render() {
         return (
             <View>
-                <Text>hi</Text>
+                <Text>Settings</Text>
             </View>
         )  
     }

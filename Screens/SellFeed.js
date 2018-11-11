@@ -5,7 +5,7 @@ export default class SellFeed extends React.Component {
     render() {
         return (
             <View>
-                <Text>hi</Text>
+                <Text>Sell</Text>
             </View>
         )  
     }
