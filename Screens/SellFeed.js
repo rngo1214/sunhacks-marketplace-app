@@ -39,7 +39,7 @@ export default class SellFeed extends React.Component {
         keyExtractor={(item,index) => JSON.stringify(item._id)}
         data={this.state.data}
         renderItem={({item}) =>
-          <View style={{marginTop: 15, alignItems: 'center'}}>
+          <View style={Styles.cardContainer}>
             <View style={Styles.card}>
             <Text style={Styles.cardTitle}>{item.title}</Text>
             <Text style={Styles.cardAuthor}>{item.author}</Text>
