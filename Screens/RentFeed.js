@@ -3,33 +3,42 @@ import { Text, View, FlatList } from 'react-native';
 import Styles from '../Styles'
 
 export default class RentFeed extends React.Component {
+  constructor(){
+    super();
+    this.state={
+      data: [],
+    }
+  }
+
+  componentDidMount(){
+    var object = {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body:JSON.stringify({
+        col: 'rent-reqs',
+        search: {}
+      })
+    };
+
+    fetch('https://sunhacks-marketplace.herokuapp.com/getCards', object)
+    .then((response) => {
+      this.setState({
+        data: JSON.parse(response._bodyInit)
+      })
+      console.log(this.state.data);
+    })
+    .catch(function(err) {})
+  };
+
   render() {
     return (
       <FlatList
-        keyExtractor={(item, index) => JSON.stringify(item._id)}
-        data={[
-          {
-            "author": "Jimmy John",
-            "title": "Cutting board and knives",
-            "description": "I wanna make some sandwiches but I don't have any way to slice the veggies",
-            "budget": "$2",
-            "useDuration": "< 1 hr",
-            "_id": {
-              "Sold": "fjaklfdksaf"
-            }
-          },
-          {
-            "author": "Randy Ngo",
-            "title": "Big bowl for cooking",
-            "description": "I wanna make brownies but my bowl isn't big enough",
-            "budget": "$5",
-            "useDuration": "2 hr",
-            "_id": {
-              "Sold": "fjdklasfjkdh"
-            }
-          }
-        ]}
-        renderItem={({item}) => 
+        keyExtractor={(item,index) => JSON.stringify(item._id)}
+        data={this.state.data}
+        renderItem={({item}) =>
           <View style={{marginTop: 15, alignItems: 'center'}}>
             <View style={Styles.card}>
             <Text style={Styles.cardTitle}>{item.title}</Text>
@@ -44,6 +53,6 @@ export default class RentFeed extends React.Component {
           backgroundColor: '#fff',
         }}
       />
-    )  
+    )
   }
 }
