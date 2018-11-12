@@ -73,7 +73,7 @@ export default class ChatFeeds extends React.Component {
         <View style={{flex: 7}}>
           <FlatList
             keyExtractor={(item, index) => JSON.stringify(item._id)}
-            data={this.state.messages.reverse()}
+            data={this.state.messages}
             renderItem = {({item}) => 
               <View style={Styles.chatBox}>
                 <Text style={Styles.cardDescription}>{item.text}</Text>
