@@ -3,9 +3,9 @@ import { Text, View, FlatList } from 'react-native';
 import Styles from '../Styles'
 import SearchbarHeader from '../Components/SearchbarHeader.js'
 
-export default class RentFeed extends React.Component {
-  constructor(){
-    super();
+export default class FeedScreen extends React.Component {
+  constructor(props){
+    super(props);
     this.state={
       data: [],
     }
@@ -19,10 +19,12 @@ export default class RentFeed extends React.Component {
         'Content-Type': 'application/json'
       },
       body:JSON.stringify({
-        col: 'rent-reqs',
+        col: this.props.col,
         search: {}
       })
     };
+
+    console.log(object)
 
     fetch('https://sunhacks-marketplace.herokuapp.com/getCards', object)
     .then((response) => {
@@ -43,11 +45,9 @@ export default class RentFeed extends React.Component {
           renderItem={({item}) =>
             <View style={Styles.cardContainer}>
               <View style={Styles.card}>
-              <Text style={Styles.cardTitle}>{item.title}</Text>
-              <Text style={Styles.cardAuthor}>{item.author}</Text>
-              <Text style={Styles.cardDescription}>{item.description}</Text>
-              <Text style={Styles.cardBudget}>Budget: {item.budget}</Text>
-              <Text style={Styles.cardUseDuration}>Duration: {item.useDuration}</Text>
+                {this.props.fields.map(field => {
+                  return <Text key={field.name} style={Styles[field.style]}>{item[field.name]}</Text>
+                })}
               </View>
             </View>
           }

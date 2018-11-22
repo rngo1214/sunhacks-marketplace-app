@@ -15,13 +15,16 @@
     "url": "git+https://github.com/rngo1214/sunhacks-marketplace-app.git"
   },
   "dependencies": {
+    "email-existence": "^0.1.6",
     "expo": "^31.0.4",
     "expo-cli": "^2.3.8",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
+    "react-native-elements": "^0.19.1",
     "react-native-paper": "^2.2.4",
     "react-navigation": "^2.18.2",
-    "react-navigation-material-bottom-tabs": "^0.4.0"
+    "react-navigation-material-bottom-tabs": "^0.4.0",
+    "validator": "^10.9.0"
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0"

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, FlatList } from 'react-native';
 import Styles from '../Styles'
+import SearchBarHeader from '../Components/SearchbarHeader'
 
 export default class SellFeed extends React.Component {
   constructor(){
@@ -34,23 +35,26 @@ export default class SellFeed extends React.Component {
 
   render() {
     return (
-      <FlatList
-        keyExtractor={(item,index) => JSON.stringify(item._id)}
-        data={this.state.data}
-        renderItem={({item}) =>
-          <View style={Styles.cardContainer}>
-            <View style={Styles.card}>
-            <Text style={Styles.cardTitle}>{item.title}</Text>
-            <Text style={Styles.cardAuthor}>{item.author}</Text>
-            <Text style={Styles.cardDescription}>{item.description}</Text>
-            <Text style={Styles.cardPrice}>Price: {item.price}</Text>
+      <View style={Styles.screen}>
+        <SearchBarHeader/>
+        <FlatList
+          keyExtractor={(item,index) => JSON.stringify(item._id)}
+          data={this.state.data}
+          renderItem={({item}) =>
+            <View style={Styles.cardContainer}>
+              <View style={Styles.card}>
+              <Text style={Styles.cardTitle}>{item.title}</Text>
+              <Text style={Styles.cardAuthor}>{item.author}</Text>
+              <Text style={Styles.cardDescription}>{item.description}</Text>
+              <Text style={Styles.cardPrice}>Price: {item.price}</Text>
+              </View>
             </View>
-          </View>
-        }
-        style={{
-          backgroundColor: '#fff',
-        }}
-      />
+          }
+          style={{
+            backgroundColor: '#fff',
+          }}
+        />
+      </View>
     )
   }
 }

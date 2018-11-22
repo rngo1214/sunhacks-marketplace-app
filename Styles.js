@@ -11,6 +11,28 @@ var secondaryColor;
 
 export default StyleSheet.create({
     //Page styles
+    screen:{
+      paddingTop: Expo.Constants.statusBarHeight + 44,
+      paddingBottom: 48,
+      backgroundColor: '#fff',
+      height: height
+    },
+    header:{
+      width: width,
+      height: Expo.Constants.statusBarHeight + 44,
+      flexDirection: 'row',
+      backgroundColor: '#fff',
+      borderBottomColor: '#eee',
+      borderBottomWidth: 1,
+      justifyContent: 'space-around',
+      padding: 7,
+      paddingTop: Expo.Constants.statusBarHeight + 7,
+      position: 'absolute',
+      zIndex: 1
+    },
+    headerText:{
+      fontSize: 30,
+    },
     loginPage: {
       flex: 1,
       paddingTop: Expo.Constants.statusBarHeight,
@@ -23,7 +45,15 @@ export default StyleSheet.create({
       backgroundColor: 'teal',
       alignItems: 'center'
     },
-    
+    searchBar:{
+      backgroundColor: '#ddd',
+      width: width * 4 / 5 + 10,
+      height: 30,
+      borderRadius: 15,
+      paddingLeft: 15,
+      paddingRight: 5
+    },
+
     //Component styles
     title: {
       flex: 1,
@@ -41,6 +71,18 @@ export default StyleSheet.create({
       marginBottom: 0,
       fontSize: 20,
       fontWeight: 'bold',
+    },
+    redText: {
+      flex: 1,
+      color: '#f99',
+      marginTop: 20,
+      marginBottom: 0,
+      fontSize: 25,
+      fontWeight: 'bold',
+    },
+    linkText: {
+      fontWeight: 'bold',
+      color: '#fff'
     },
     textField: {
       flex: 1,
@@ -69,8 +111,8 @@ export default StyleSheet.create({
     //Card styles
     //I think the default font size is 14 but I'm not 100% sure
     cardContainer: {
-      marginTop: 10,
-      marginBottom: 10, 
+      marginTop: 5,
+      marginBottom: 5,
       alignItems: 'center',
     },
     card: {
@@ -82,17 +124,6 @@ export default StyleSheet.create({
         justifyContent: 'center',
         borderRadius: 5,
     },
-    cardRow: {
-      color: '#fff',
-    },
-    cardColumn: {
-      color: '#fff',
-    },
-    cardAuthor: {
-      color: '#fff',
-      fontStyle: 'italic',
-      fontSize: 14,
-    },
     cardTitle: {
       color: '#fff',
       fontWeight: 'bold',
@@ -103,18 +134,8 @@ export default StyleSheet.create({
       fontSize: 16,
       marginTop: 3,
       marginBottom: 3,
-    },  
-    cardBudget: {
-      color: '#fff',
-      fontStyle: 'italic',
-      fontSize: 14,
     },
-    cardDuration: {
-      color: '#fff',
-      fontStyle: 'italic',
-      fontSize: 14,
-    },
-    cardPrice: {
+    cardSubtext: {
       color: '#fff',
       fontStyle: 'italic',
       fontSize: 14,
@@ -138,8 +159,29 @@ export default StyleSheet.create({
       flex: 1,
       backgroundColor: 'maroon',
       alignContent: 'center',
-      padding: 20,
+      padding: 10,
       borderRadius: 10,
-      margin: 15,
+      margin: 5,
+    },
+    messageInputField: {
+      backgroundColor: '#ddd',
+      width: width * 4 / 5 + 5,
+      borderRadius: 15,
+      paddingLeft: 15,
+      paddingRight: 15,
+      paddingTop: 5,
+      paddingBottom: 5,
+      fontSize: 16
+    },
+    sendMessageButton: {
+      width: width / 5 - 25,
+      height: 20,
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    sendMessageText: {
+      color: 'maroon',
+      fontSize: 16,
+      fontWeight: 'bold'
     }
   });

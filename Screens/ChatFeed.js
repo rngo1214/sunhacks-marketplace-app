@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TextInput, Button, TouchableHighlight, FlatList } from 'react-native';
+import { KeyboardAvoidingView, ScrollView, Text, View, TextInput, Button, TouchableHighlight, FlatList } from 'react-native';
 import Styles from '../Styles'
 
 export default class ChatFeeds extends React.Component {
@@ -34,15 +34,15 @@ export default class ChatFeeds extends React.Component {
     fetch('https://sunhacks-marketplace.herokuapp.com/addChat', object)
     .then(response =>{
       this.state.messages.push(JSON.parse(response._bodyInit))
-      console.log(this.state.messages);
-      
+    })
+    .then(()=>{
+      this.setState({input: ''});
+      this.textInput.clear();
+      this.forceUpdate();
     })
     .catch(function(err) {
       console.log(err);
     });
-    this.setState({input: ''});
-    this.textInput.clear();
-    this.forceUpdate();
   }
 
   componentDidMount(){
@@ -59,43 +59,57 @@ export default class ChatFeeds extends React.Component {
       this.setState({
         messages: JSON.parse(response._bodyInit),
       })
-      console.log(response);
-      console.log('fsdfdsfdsfsdfsd' + this.state.messages);
     })
     .catch(function(err) {
       console.log(err);
     })
   };
-  
+
   render() {
     return (
-      <View style={Styles.chatContainer}>
-        <View style={{flex: 7}}>
-          <FlatList
-            keyExtractor={(item, index) => JSON.stringify(item._id)}
-            data={this.state.messages}
-            renderItem = {({item}) => 
-              <View style={Styles.chatBox}>
-                <Text style={Styles.cardDescription}>{item.text}</Text>
-              </View>
-            }
-            style={Styles.flexChat}
-          />
+      <View style={Styles.screen}>
+        <View style={Styles.header}>
+          <Text style={Styles.headerText}>Chat</Text>
         </View>
-        <View style={{
-          flex: 1,
-          flexDirection: 'row',
-        }}>
-          <TextInput style= {Styles.textField}
-            onChangeText={(input) => this.setState({input})}
-            ref={input => { this.textInput = input }}
-          />
-          <TouchableHighlight style={Styles.loginButton} onPress={this.onMessageSend} underlayColor={'#fff'}>
-            <Text style={Styles.loginText}>Send Message</Text>
-          </TouchableHighlight>
-        </View>
+        <KeyboardAvoidingView style={Styles.chatContainer} behavior='position'>
+          <View style={{flex: 9}}>
+            <FlatList
+              ref={ref => this.flatList = ref}
+              onContentSizeChange={() => this.flatList.scrollToEnd({animated:true})}
+              keyExtractor={(item, index) => JSON.stringify(item._id)}
+              data={this.state.messages}
+              renderItem = {({item}) =>
+                <View style={Styles.chatBox}>
+                  <Text style={Styles.cardDescription}>{item.text}</Text>
+                </View>
+              }
+              style={Styles.flexChat}
+            />
+          </View>
+          <View style={{
+            flexDirection: 'row',
+            minHeight: 30,
+            maxHeight: 80,
+            padding: 10,
+            borderTopColor: '#eee',
+            borderTopWidth: 0.5,
+            borderBottomColor: '#eee',
+            borderBottomWidth: 0.5
+          }}>
+            <TextInput style= {Styles.messageInputField}
+              onChangeText={(input) => this.setState({input})}
+              ref={input => { this.textInput = input }}
+              multiline={true}
+              placeholder='Type here...'
+            />
+            <View style={{justifyContent: 'center'}}>
+              <TouchableHighlight style={Styles.sendMessageButton} onPress={this.onMessageSend} underlayColor={'#fff'}>
+                <Text style={Styles.sendMessageText}>Send</Text>
+              </TouchableHighlight>
+            </View>
+          </View>
+        </KeyboardAvoidingView>
       </View>
       );
     }
   }
-  

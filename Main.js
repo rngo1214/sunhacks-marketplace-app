@@ -8,23 +8,49 @@ import BuyFeed from './Screens/BuyFeed';
 import SellFeed from './Screens/SellFeed';
 import SettingsFeed from './Screens/SettingsFeed';
 import ChatFeed from './Screens/ChatFeed';
+import FeedScreen from './Screens/FeedScreen'
 
 export default createMaterialBottomTabNavigator({
-  Rent: { 
+  Rent: {
     //This syntax is technically redundant at the moment but other things could be added in the future
-    screen: RentFeed 
+    screen: () => <FeedScreen
+      col='rent-reqs'
+      fields={[
+        {name: 'title', style: 'cardTitle'},
+        {name: 'author', style: 'cardSubtext'},
+        {name: 'description', style: 'cardDescription'},
+        {name: 'budget', style: 'cardSubtext'},
+        {name: 'useDuration', style: 'cardSubtext'}
+      ]}
+    />
   },
-  Buy: { 
-    screen: BuyFeed,
+  Buy: {
+    screen: () => <FeedScreen
+      col='buy-reqs'
+      fields={[
+        {name: 'title', style: 'cardTitle'},
+        {name: 'author', style: 'cardSubtext'},
+        {name: 'description', style: 'cardDescription'},
+        {name: 'budget', style: 'cardSubtext'},
+      ]}
+    />
   },
-  Sell: { 
-    screen: SellFeed 
+  Sell: {
+    screen: () => <FeedScreen
+      col='buy-offers'
+      fields={[
+        {name: 'title', style: 'cardTitle'},
+        {name: 'author', style: 'cardSubtext'},
+        {name: 'description', style: 'cardDescription'},
+        {name: 'price', style: 'cardSubtext'},
+      ]}
+    />
   },
-  Chat: { 
-    screen: ChatFeed 
+  Chat: {
+    screen: ChatFeed
   },
-  Settings: { 
-    screen: SettingsFeed 
+  Settings: {
+    screen: SettingsFeed
   },
 },
 {
@@ -50,7 +76,7 @@ export default createMaterialBottomTabNavigator({
         iconName = `settings${focused ? '' : '-outline'}`;
       }
       return <MaterialCommunityIcons name={iconName} size={25} color={tintColor} />;
-    }, 
+    },
   }),
   //Represents the icon colors on the navbar when selected/not selected
   //There's probably a better way to handle this but I'm not aware of it at the moment
