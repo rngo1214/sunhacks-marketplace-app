@@ -15,7 +15,7 @@
     "url": "git+https://github.com/rngo1214/sunhacks-marketplace-app.git"
   },
   "dependencies": {
-    "expo": "^31.0.4",
+    "expo": "^46.0.14",
     "expo-cli": "^2.3.8",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
